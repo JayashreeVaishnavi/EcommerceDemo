@@ -2,7 +2,7 @@
 @section('content')
     @if(session('status'))
         <div class="alert alert-success alert-dismissible fade show alert-margin" role="alert">
-            <strong>Payment Success</strong>Your order has been processed!!!
+            <strong>Payment Success!!! </strong>Your order has been processed.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -10,7 +10,7 @@
     @endif
     @if(session('error'))
         <div class="alert alert-danger alert-dismissible fade show alert-margin" role="alert">
-            <strong>Payment Failed</strong>Please try again later!!!
+            <strong>Payment Failed!!! </strong>Please try again later.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

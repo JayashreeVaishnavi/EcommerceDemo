@@ -2,19 +2,15 @@
 @section('content')
     @if(session('status'))
         <div class="alert alert-success alert-dismissible fade show alert-margin" role="alert">
-            <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Payment Success</h4>
-                <p>Your order has been processed</p>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <strong>Payment Success</strong>Your order has been processed!!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     @endif
     @if(session('error'))
         <div class="alert alert-danger alert-dismissible fade show alert-margin" role="alert">
-            <h4 class="alert-heading">Payment Failed</h4>
-            <p>Please try again later!!!</p>
+            <strong>Payment Failed</strong>Please try again later!!!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

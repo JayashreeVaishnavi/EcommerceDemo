@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PaymentRequest;
+use Illuminate\Http\Response;
 
 class PaymentController extends Controller
 {
     /**
      * Show payment page.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|Response|\Illuminate\View\View
      */
     public function show()
     {
@@ -18,20 +19,20 @@ class PaymentController extends Controller
     }
 
     /**
-     * success response method.
+     * Pay using stripe package.
      *
      * @param PaymentRequest $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|Response|\Illuminate\Routing\Redirector
      */
     public function pay(PaymentRequest $request)
     {
         try {
             Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
             Stripe\Charge::create([
-                "amount" => $request->price,
-                "currency" => "inr",
-                "source" => $request->stripeToken,
-                "description" => "Test payment",
+               'amount' => $request->price,
+               'currency' =>'inr',
+               'source' => $request->stripeToken,
+               'description' =>'Test payment',
             ]);
             return redirect('/')->with('status', 'Payment Success!');
         } catch (\Throwable $exception) {
